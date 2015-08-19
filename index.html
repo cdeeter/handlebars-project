@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Handlebars Project</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <style>
+    </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="https://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.rc.1.min.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <br/>
+        The List of Shoes:
+        <ul class="shoesNav">
+            <script id="shoe-template" type="x-handlebars-template">
+                {{#each allShoes}}
+                    <li class="shoes">
+                    <span class="shoe-name">{{name}} - </span> price: {{price}}
+                    {{> description}}
+                    </li>
+                {{/each}}
+            </script>
+            <script id="shoe-description" type="x-handlebars-template">
+                <ul>
+                    <li>{{color}}</li>
+                    <li>{{size}}</li>
+                </ul>
+            </script>
+        </ul><br/><br/>
+        The List of Fruits:
+        <ul class="fruitsNav">
+            <script id="fruits-template" type="x-handlebars-template">
+                {{#each allFruits}}
+                    <li>{{fruitName}} from {{nativeTo.0.country}}</li>
+                {{/each}}
+            </script>
+        </ul>
+        <br/><br/>
+        
+        <ul class="celebNav">
+            <script id="celeb-template" type="x-handlebars-template">
+                {{groupName}} Group
+                {{#with celebrity}}
+                    <li>{{firstName}} {{lastName}}</li>
+                {{/with}}
+            </script>
+        </ul>
+        <br/><br/>
+        Score:
+        <ul class="scoreNav">
+            <script id="score-template" type="x-handlebars-template">
+                {{#userScore scores}}
+                    <div>{{firstName}} {{lastName}}, Your Total Score Is <strong>{{score}}</strong></div>
+                {{/userScore}}
+            </script>
+        </ul>
+    </div>
+</body>
+</html>
